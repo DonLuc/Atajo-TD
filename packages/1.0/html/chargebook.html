@@ -1,0 +1,65 @@
+<card id="chargebook" fill="true" flip="rl">
+
+<face id="chargebookFront" settings="default:true, refresh: 'chargebook'" controller="_chargebook.Ctrl" refresh='chargebook'>
+    <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">Mobile Traffic Official</font> <font size="1" color="blue">V1.0</font></ctl>
+    <ctr class="gui-extra"><input id="searchcontinnerinner" placeholder="search" ng-model="searchCharge"/></ctr>
+      <content>
+        <div align="center">
+          <placeholder ng-show="myCharges.length == 0">
+            <div align="center">
+              <img src="https://cdn1.iconfinder.com/data/icons/touch-gestures-2/24/Drag-Down-512.png" alt="Pull down" width="50" height="60"/>
+              </br>  
+              Pull down to refresh</br></br>
+            </div>
+          </placeholder>
+          <placeholder ng-show="myCharges.length > 0">
+            <table border="1" width="100%" class="cardFormElementContainer" style="background-color: orange; box-shadow: 4px 4px 8px black;">
+              <tr>
+                <td>Charge Code</td>
+                <td>Description</td>
+                <td>Penalty</td>
+                <td>Demerit points</td>
+                <td>Charge (R)</td>
+              </tr>
+              <tr ng-repeat="charge in myCharges | filter: searchCharge">
+                <td class="cardFormElementContent">{{charge.charge_code}}</td>
+                <td class="cardFormElementContent">{{charge.charge_word}}</td>
+                <td class="cardFormElementContent">{{charge.penalty}}</td>
+                <td class="cardFormElementContent">{{charge.demerit_points}}</td>
+                <td class="cardFormElementContent">{{charge.charge_fee}}</td>
+              </tr>
+            </tr>
+            <tr>
+              <td colspan="5" align="center">
+                <font size="3" face="campbria" color="blue" onClick="_chargebook.openURL('http://www.aarto.co.za/chargecodes-list.asp')">View more charge codes</font>
+              </td>
+            </tr>
+            </table>
+          </placeholder>
+        </div>
+      </content>
+    <cbr flip-target="chargebookHelp" class="gui-extra">&#xf059;</cbr>
+    <cbl><x>Show Data</x></cbl>
+</face>
+
+<face id="chargebookHelp" face="back">
+   <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">Mobile Traffic Official</font> <font size="1" color="blue">V1.0</font></ctl>
+    <ctr class="gui" flip-target="close">x</ctr>
+    <content>
+        <table border="2" class="cardformElementContainer" width="100%" style="background-color: orange;">
+          <tr>
+            <td align="center">
+              <font size="5" face="cambria" color="white" style="text-shadow: 2px 2px 4px grey;">AARTO Charge codes help</font>
+            </td>
+          </tr>
+        </table>
+        <h4><u>How it works</u></h4>
+            <p>This page provides a list of the AARTO Charge codes, their penalties, points and fees.<br> For more charge codes please click on the link displayed at the bottom of the table.<br></br>
+            You can use a search box at the top riht of the page to search<br>
+            for a code by keyword.
+            </p>
+    </content>
+    <cbl></cbl>
+    <cbr></cbr>
+</face>
+</card>

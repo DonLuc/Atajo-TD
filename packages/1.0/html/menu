@@ -1,0 +1,37 @@
+<card id="menu" fill="true" flip="rl">
+
+<face id="menuFront" settings="default:true" controller="_menu.Ctrl">
+    <ctl>Menu</ctl>
+    <ctr class="gui-extra" flip-target="menuHelp">&#xf059;</ctr>
+    <content>
+	    
+	    <link href="http://demo.phpjabbers.com/1441277568_348/core/framework/libs/pj/css/pj.bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="http://demo.phpjabbers.com/1441277568_348/index.php?controller=pjFront&action=pjActionLoadCss" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="http://demo.phpjabbers.com/1441277568_348/index.php?controller=pjFront&action=pjActionLoad"></script>
+
+
+
+    </content>
+    <cbl></cbl>
+    <cbr><x onclick="_example.getData()">Show Data</x></cbr>
+
+</face>
+
+
+<face id="menuHelp" face="back">
+
+    <ctl>HELP</ctl>
+    <ctr class="gui" flip-target="close">x</ctr>
+    <content>
+
+        <placeholder>
+              This is a help section - and provides the user with information relevant to the current you are on.
+        </placeholder>
+
+
+    </content>
+    <cbl></cbl>
+    <cbr></cbr>
+</face>
+
+</card>

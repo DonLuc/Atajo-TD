@@ -1,0 +1,255 @@
+
+{
+
+
+   "EMAIL"      :
+   {
+      "DEVELOPER"     : "lucas.nkoana@britehouse.co.za",
+      "SUPPORT"       : "support@atajo.co.za",
+      "ADMINISTRATOR" : "support@atajo.co.za"
+   },
+
+   "VERSIONS"   :
+   {
+      "DEV" : { "ID" : "1.0", "DEBUG":true,  "COREVERSION" : "1.0" },
+      "QAS" : { "ID"  : "1.0", "DEBUG":true,  "COREVERSION" : "1.0" },
+      "PRD" : { "ID"  : "1.0", "DEBUG":false, "COREVERSION" : "1.0" }
+   },
+
+   "DEVICE" :
+   {
+
+      "ALLOW"          : {
+
+          "WP8"     : false,
+          "ANDROID" : true,
+          "IOS"     : true,
+          "BB10"    : false,
+          "WEB"     : false
+      },
+
+       "enableLocation"          : true,
+       "enablePushNotifications" : false
+
+   },
+
+   "SETTINGS" :
+   {
+      "sendCredentials" : true,
+
+      "pinLock" :
+            {
+              "enabled" : false,
+              "timeout" : 2
+            },
+
+      "jobQueue" :
+            {
+              "visible"    : true,
+              "maxJobs"    : 0,
+              "jobLife"    : 0,
+              "dataLife"   : 0,
+              "showBubble" : true
+            },
+
+            "login": {
+
+                        "enabled"  : true,
+                        "heading"  : "SIGN IN",
+                        "fields": [
+                            {
+                                "name": "username",
+                                "label": "Username",
+                                "type": "text"
+                            },
+                            {
+                                "name": "password",
+                                "label": "Password",
+                                "type": "password"
+                            }
+                        ]
+
+                    },
+
+
+      "menuIcon"       : "&#xf17a;",
+      "jobQueueIcon"   : "&#xf0ee;"
+
+
+    },
+
+    "LOADER"     :
+        {
+      "lines"     : 22,
+      "length"    : 3,
+      "width"     : 3,
+      "radius"    : 20,
+      "corners"   : 1,
+      "rotate"    : 0,
+      "direction" : 1,
+      "color"     : "#fff",
+      "speed"     : 1.2,
+      "trail"     : 30,
+      "shadow"    : false,
+      "hwaccel"   : true,
+      "className" : "spinner",
+      "zIndex"    :  2e9,
+      "top"       : "50%",
+      "left"      : "50%"
+      },
+      
+
+    "LAYOUT" : {
+        "small": {
+            "home": {
+                "menu": true,
+                "icon": "&#xf015;",
+                "label": "Home",
+                "views": ["home"],
+                "default": true
+            },
+            "onRoad": {
+                "menu": false,
+                "icon": "&#xf018;",
+                "label": "On-Road",
+                "views": ["onRoad"],
+                "default": false
+            },
+            "recordInfo": {
+                "menu": false,
+                "icon": "&#xf083;",
+                "label": "Capture Images",
+                "views": ["vehicleImage","recordInfo", "regPlate","driverImage"],
+                "layout": "<table width='100%'><tr><td class='_recordInfo' width='25%'></td><td class='_vehicleImage' width='25%'></td><td class='_regPlate' width='25%'></td><td class='_driverImage' width='25%'></td></tr></table>",
+                "default": false
+            },
+            "offRoad": {
+                "menu": false,
+                "icon": "&#xf018;",
+                "label": "Off-Road",
+                "views": ["recordInfo"],
+                "default": false
+            },
+            "charges": {
+                "menu": true,
+                "icon": "&#xf02d;",
+                "label": "AARTO Chargebook",
+                "subText": "A list of the AARTO charges",
+                "views": ["chargebook"],
+                "default": false
+            },
+            "ticket": {
+                "menu": true,
+                "icon": "&#xf145;",
+                "label": "Ticket",
+                "subText": "Issue out a ticket to the driver", 
+                "views": ["fineTicket"],
+                "default": false
+            },
+            "retrieveTick": {
+                "menu": true,
+                "icon": "&#xf145;",
+                "label": "View tickets", 
+                "views": ["retrieveTickets"],
+                "default": false
+            }
+
+        },
+        "large": 
+        {
+            "home": {
+                "menu": true,
+                "icon": "&#xf015;",
+                "label": "Home",
+                "views": ["home"],
+                "default": true
+            },            
+            "onRoad": {
+                "menu": false,
+                "icon": "&#xf018;",
+                "label": "On-Road",
+                "views": ["onRoad"],
+                "default": false
+            },
+            "recordInfo": {
+                "menu": false,
+                "icon": "&#xf083;",
+                "label": "Capture Images",
+                "views": ["recordInfo","driverImage","vehicleImage","regPlate"],
+                "layout": "<table width='100%'><tr><td class='_recordInfo' width='20%'></td><td width='20%' class='_driverImage'></td><td width='20%' class='_vehicleImage'></td><td class='_regPlate' width='20%'></td></tr></table>",
+                "default": false
+            },
+            "charges": {
+                "menu": true,
+                "icon": "&#xf02d;",
+                "label": "AARTO Chargebook",
+                "subText": "A list of the AARTO charges", 
+                "views": ["chargebook"],
+                "default": false
+            },
+            "blocks": {
+                "menu": true,
+                "icon": "&#xf041;",
+                "label": "Road-block",
+                "subText": "Locates the next road block to initiate", 
+                "views": ["gps"],
+                "default": false
+            },
+            "ticket": 
+            {
+                "menu": true,
+                "icon": "&#xf05a;",
+                "label": "Ticket fine",
+                "views": ["fineTicket"],
+                "default": false
+            },
+            "retrieveTick": {
+                "menu": true,
+                "icon": "&#xf145;",
+                "label": "View tickets", 
+                "views": ["retrieveTickets"],
+                "default": false
+            },
+            "menu": {
+                "menu": true,
+                "icon": "&#xf145;",
+                "label": "Menu", 
+                "views": ["menu"],
+                "default": false
+            }
+            
+        }
+    },
+    "SERVICES" :
+        [
+            {
+              "service"  : "chargebook",
+              "label"    : "chargebook",
+              "key"      : "id",
+              "handler"  : "chargesHandler"
+            },
+            {
+              "service"  : "GPS",
+              "label"    : "GPS Coordinates",
+              "key"      : "id",
+              "handler"  : "gpsHandler"
+            },
+            {
+              "service"  : "retrieveTickets",
+              "label"    : "Retrieved tickets",
+              "key"      : "_id",
+              "handler"  : "retrieveTickets"
+            }
+        ],
+   "ACTIONS":
+        [
+          {
+              "action" : "updateStatus",
+              "handler" : "updateStatus"
+          },
+          {
+              "action" : "recordTicket",
+              "handler" : "ticketHandler"
+          }
+        ]
+}

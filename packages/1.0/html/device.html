@@ -1,0 +1,50 @@
+<card id="device" fill="true" >
+
+<face id="deviceFront" settings="default:true" controller="_device.Ctrl">
+    <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">Mobile Traffic Official</font> <font size="1" color="blue">V1.0</font></ctl><ctr>
+    </ctr>
+    <content>
+
+      <placeholder ng-show="deviceInfo == ''">
+        Not yet defined.
+      </placeholder>
+      <div align="center">
+        <table width="100%" class="cardFormElementContainer" style="background-color: orange;">
+          <tr>
+            <td class="cardFormElementContent"> </td>
+            <td class="cardFormElementContent"></td>
+          </tr>
+          <tr>
+            <td class="cardFormElementContent" colspan="2" align="center"><font size="6" face="Lucida Console" color="white" >Device Information</font></td>
+          
+          </tr>
+          <tr>
+            <td class="cardFormElementContent">Device Model</td>
+            <td class="cardFormElementContent">{{deviceInfo.devModel}}</td>
+          </tr>
+          <tr>
+            <td class="cardFormElementContent">Device Platform</td>
+            <td class="cardFormElementContent">{{deviceInfo.devPlatform}}</td>
+          </tr>
+          <tr>
+            <td class="cardFormElementContent">Device Cordova</td>
+            <td class="cardFormElementContent">{{deviceInfo.devCordova}}</td>
+          </tr>
+          <tr>
+            <td class="cardFormElementContent">Device UUID</td>
+            <td class="cardFormElementContent">{{deviceInfo.devUuid}}</td>
+          </tr>
+          <tr>
+            <td class="cardFormElementContent">Device Version</td>
+            <td class="cardFormElementContent">{{deviceInfo.devVersion}}</td>
+          </tr>
+          <tr>
+            <td align="center" colspan="2"><button onClick="layout.show('home')">Back to home<span>&#xf015;</span></button></td>
+          </tr>
+        </table>
+      </div>
+    <cbr onClick="_device.tryMe();"></cbr>
+    <cbl></cbl>
+  </content>
+</face>
+</card>

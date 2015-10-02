@@ -1,0 +1,199 @@
+<card id="fineTicket" fill="true">
+  
+  <face id="ticketSet" settings="default:true" controller="_fineTicket.fineCtrl">
+      <ctl></ctl>
+      <ctr id="light" onClick="_fineTicket.torch();">Flashlight</ctr>
+        <content>
+      <div align="center">
+        <li class="parent">Ticket
+          <ul class="child"> 
+            <formElement class="" title="Ticket">
+              <table style="background-color: orange;">
+                <tr>
+                  <td></td>
+                  <td></td>
+                <tr></tr>
+                <tr>
+                  <td>
+                    <label>Driver's ID<label>
+                  </td>
+                  <td>
+                    <input type="number" size="13" ng-model="id_num" id="txtID"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label onClick="_fineTicket.testMsg();">Charge Code</label>
+                  </td>
+                  <td>
+                    <input type="number" ng-model="c_code" id="txtCode"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label>Charge Fee (R)</label>
+                  </td>
+                  <td>
+                    <input type="number" ng-model="c_fee" id="txtChargeFee"/>
+                   </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label>Driver's email</label>
+                  </td>
+                  <td>
+                    <input type="number" ng-model="email" id="txtEmail"/>
+                   </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label>License Plate Reg.</label>
+                  </td>
+                  <td>
+                    <input type="text" ng-model="plate" id="txtPlate"/>
+                   </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label>Vehicle Brand</label>
+                  </td>
+                  <td>
+                    <select id="selBrand" class="select">
+                      <option value=""></option>
+                      <option value="austin_martin">Austin Martin</option>
+                      <option value="BMW">BMW</option>
+                      <option value="CADILLAC">Cadillac</option>
+                      <option value="CHEVROLET">Chevrolet</option>
+                      <option value="CHRYSLER">Chrysler</option>
+                      <option value="CITROEN">Citroen</option>
+                      <option value="DATSUN">datsun</option>
+                      <option value="FORD">Ford</option>
+                      <option value="FIAT">Fiat</option>
+                      <option value="FERRARI">Ferrari</option>
+                      <option value="SUBARU">Subaru</option>
+                      <option value="TOYOTA">Toyota</option>
+                      <option value="other">Other</option>    
+                    </select>
+                   </td>
+                </tr>
+                <tr>
+                  <td><label>Vehicle Type</label></td>
+                  <td>
+                    <select id="selType" class="select">
+                        <option value=""></option>
+                        <option value="HATCH">Hatch</option>
+                        <option value="SEDAN">Sedan</option>
+                        <option value="SUV">SUV</option>
+                        <option value="MPV">MPV</option>
+                        <option value="SINGLE CAB">Single Cab</option>
+                        <option value="DOUBLE CAB">Double Cab</option>
+                        <option value="OFFROAD">Offroad</option>
+                        <option value="MOTORCYCLE">Motorcycle</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label>Metropolitan Municipality</label></td>
+                  <td>
+                    <select id="selMunicipal" class="select">
+                        <option value=""></option>
+                         <option value="City of Johannesburg Metropolitan Municipality" id="jhbMun">City of Johannesburg Metropolitan Municipality</option> 
+                        <option value="City of Tshwane Metropolitan Municipality" id="ptaMun">City of Tshwane Metropolitan Municipality</option>
+                        <option id="ekhMun" value="Ekurhuleni Metropolitan Municipality">Ekurhuleni Metropolitan Municipality
+                        </option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Date of issue</td>
+                  <td><input type="date" id="issueDate"/></td>
+                </tr>
+                <tr>
+                  <td>Due date</td>
+                  <td><input type="date" id="dueDate"/></td>
+                </tr>
+                <!--
+                <tr align="center">
+                  <td colspan="2" align="center">
+                    <table width="80%">
+                      <tr>
+                          <td align="center">
+                            <button align="center" type="button" onClick="_fineTicket.sendJob(10,'Issue Ticket','Sends a ticket',false, false);" class="savebtn">Issue a ticket</button>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                          <x flip-target="ticketSignatureFront"></x>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              -->
+              </table>
+
+              <formElement class="" title="Ticket">
+                <ul>
+                  
+                  <placeholder ng-show="!drivers.length">NO PHOTOS {{carImages.length}}</placeholder>
+                  <li ng-repeat="driver in carImages">
+                    <center>
+                      <table class="cardFormContainer" cellspacing='0' cellpadding='0' style="background-color: orange;">
+
+                          <tr>
+                             <td class="cardFormElementTitle">CAR IMAGE</td>
+                             <td class="cardFormElementDesc" idx="{{$index}}" onClick="alert('Hi');">DELETE&nbsp;<x class="gui-extra">&#xf00d;</x>
+                            </td>
+                          </tr>
+                           <tr>
+                             <td colspan="2" class="cardFormElementContent">
+                               <table>
+                                <tr>
+                                <td align="center">
+                                    <img style="max-width:100%;" width="200" height="200" src="{{driver.img}}"  />
+                                </td>
+                                </tr>
+                              </table>
+                             </td>
+                           </tr>
+                        </table>
+                     </center>
+                  </li>
+                
+              </ul>
+
+
+              </formElement>
+
+              <!--
+              <table>
+                <tr>
+                  <td><label onClick="_fineTicket.capturePhoto();">Click here to capture the car</label></td>
+                  <td>
+                    <ul>
+                      <li ng-repeat="photo in carImage">
+                        <table>
+                          <tr>
+                              <td>
+                                <img style="max-width:100%;" width="200" height="200" src="C:/Workspace/car.png"/>
+                              </td>
+                          </tr>
+                        </table>
+                      </li>
+                    </ul>
+                    
+                  </td>
+
+                </tr>
+              </table>
+            -->
+
+            </formElement>
+          </ul>
+        </li>
+      </div>
+        </content>
+      <cbl onClick="_fineTicket.sendJob(10,'Issue Ticket','Sends a ticket',false, false);">Issue ticket</cbl>
+      <cbr onClick="_fineTicket.capturePhoto();">Capture Car</cbr>
+  </face>
+</card>

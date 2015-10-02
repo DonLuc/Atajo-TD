@@ -1,0 +1,5 @@
+============Ticket Data============
+
+Driver ID: 		
+Charge Code: 		undefined
+Charge Fee		R undefined

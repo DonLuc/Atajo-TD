@@ -1,0 +1,68 @@
+<card id="retrieveTickets" fill="true">
+  <face id="retrieveTicketsFront" settings="default:true, refresh:'retrieveTickets'" controller="_retrieveTickets.retrieveCtrl">
+      <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">Mobile Traffic Official</font> <font size="1" color="blue">V1.0</font></ctl>
+      <ctr class="gui-extra">
+      	
+      	<div align="right">
+	      	<table>
+	      		<tr>
+	      			<!--
+	      			<td>
+	      				<select>
+	      					<option value="chargeCode">Charge code</option>
+	      					<option value="chargeFee">Charge fee</option>
+	      					<option value="chargeCode">ID Number</option>
+	      				</select>
+	      			</td>
+	      		-->
+	      			<td>
+	      				<input id="searchcontinnerinner" placeholder="search" ng-model="searchTicket"/>
+	      			</td>
+	      		</tr>
+	      	</table>
+	      </div>
+      </ctr>
+      <content>
+      	<placeholder ng-show="tickets.length == 0">
+            <div align="center">
+              <img src="https://cdn1.iconfinder.com/data/icons/touch-gestures-2/24/Drag-Down-512.png" alt="Pull down" width="50" height="60"/>
+              </br>  
+              Pull down to refresh</br></br>
+            </div>
+          </placeholder>
+          <!--
+      	<placeholder ng-show="tickets.length == 0">
+      		No tickets found.</br>
+      		You might have forgot to sync tickets data.</br>
+      		</br>If already synchronized please refresh the view by selecting</br>
+      		any menu item from the menu then return to this menu item(Retrieve tickets).
+      	</placeholder>
+      -->
+      <placeholder>
+      	<ul class="collapseme" data-collapse="accordion" id="ticket_collapse">
+	      	<div align="center" ng-show="tickets.length > 0">
+		      	<table border="1" width="100%" id="tickTable" class="cardFormElementContainer" style="background-color: orange; box-shadow: 4px 4px 8px black;">
+	      		 	<tr>
+	      		 		<td class="cardFormElementContent" >Ticket ID</td>
+	      		 		<td class="cardFormElementContent" >Driver's ID</td>
+	      		 		<td class="cardFormElementContent" >Charge Code</td>
+	      		 		<td class="cardFormElementContent" >Charge Fee (R)</td>			
+	      		 	</tr>
+	      		 	<tr ng-repeat="ticket in tickets| filter: searchTicket">
+	      		 		<td class="cardFormElementContent">{{ticket._id}}</td>
+	      		 		<td class="cardFormElementContent">{{ticket.driverID}}</td>
+	      		 		<td class="cardFormElementContent">{{ticket.chargeCode}}</td>
+	      		 		<td class="cardFormElementContent">{{ticket.chargeFee}}</td>
+	      		 	</tr>
+	      		 
+	      		 </table>
+	      	</div>
+	    </placeholder>
+	    </ul>
+      </content>
+      <cbl onClick="_retrieveTickets.sendJob(10);">
+      	Remove ticket
+      </cbl>
+      <cbr></cbr>
+  </face>
+</card>

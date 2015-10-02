@@ -1,0 +1,48 @@
+<card id="onRoad" fill="true" flip="rl">
+
+<face id="onRoadFront" settings="default:true" controller="_onRoad.Ctrl">
+    <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">On-road Operations</font> <font size="1" color="blue">V1.0</font></ctl>
+    <ctr class="gui-extra">&#xf017;</ctr>
+    
+    <content>
+      <div align="center">
+       <ul>
+        <li class="cardListElement">
+          <table style="background-color: orange;">
+            <tr class="cardFormElementTitle">
+              <td align="center">
+                <font color="white" size="5" style="text-shadow: 1px 1px 2px black;">
+                  Select an operation
+                </font>
+
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <img width="90%" height="40%" style="box-shadow: 4px 4px 8px black; " src="http://www.timeslive.co.za/Feeds/ipad_images/2015/03/19/ttp15jmpd5-04-12-2013-14-12-05-493-.jpg/ALTERNATES/crop_630x400/TTP15JMPD5-04-12-2013-14-12-05-493-.jpg"/>
+               </td>
+            </tr>
+            <tr>
+              <td class="txtTitle" onClick="layout.show('recordInfo');">
+                  <div class="gui-extra">&#xf0c7;Image caption</br>
+                  <x class="cardListElementSubText"><font color="white">This includes picture taking, license scanning and reason for charge!</font></x>
+                  </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="txtTitle" onClick="layout.show('ticket');">
+                  <div class="gui-extra">&#xf0c7;Issue ticket</br>
+                  <x class="cardListElementSubText"><font color="white">Issue a ticket to a driver for an offense!</font></x>
+                  </div>
+              </td>
+            </tr>
+          </table>
+        </li>
+       </ul> 
+    </div>
+    </content>
+    <cbl></cbl>
+    <cbr><x>Show Data</x></cbr>
+
+</face>
+</card>

@@ -1,0 +1,188 @@
+<card id="ticket" fill="true">
+
+  <face id="ticketFront" settings="default:true" controller="_ticket.Ctrl();">
+      <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">Mobile Traffic Official</font> <font size="1" color="blue">V1.0</font></ctl>
+      <ctr>Ticket Section</ctr>
+      <content>
+        <div align="center">
+          <ul>
+            <li>
+              <table class="cardFormElementContainer" style="background-color: orange" width="70" >
+                <tr>
+                  <td class="cardFormElementContent" flip-target="ticketSet">Issue ticket</td>
+                </tr>
+              </table>
+            </li>
+            <li>
+              <table class="cardFormElementContainer" style="background-color: orange" background-color="orange" width="70%" >
+                <tr>
+                  <td class="cardFormElementContent" flip-target="ticketGet">View tickets</td>
+                </tr>
+                <tr>
+                  <td onClick="_ticket.testMsg();">Test Class</td>
+                </tr>
+              </table>
+            </li>
+          </ul>
+        </div>  
+      </content>
+      <cbr></cbr>
+      <cbl></cbl>
+  </face>
+  <face id="ticketSet" face="back" controller="_ticket.Set_Ctrl();">
+      <ctl></ctl>
+      <ctr>Issue ticket</ctr>
+        <content>
+      <div align="center">
+        <formElement class="" title="Ticket">
+          <table style="background-color: orange;">
+            <tr>
+              <td></td>
+              <td></td>
+            <tr></tr>
+            <tr>
+              <td>
+                <label>Driver's ID<label>
+              </td>
+              <td>
+                <input type="number" size="13" ng-model="id_num" id="txtID"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label onClick="_ticket.testMsg();">Charge Code</label>
+              </td>
+              <td>
+                <input type="number" ng-model="c_code" id="txtCode"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Charge Fee (R)</label>
+              </td>
+              <td>
+                <input type="number" ng-model="c_fee" id="txtFee"/>
+               </td>
+            </tr>
+            <tr align="center">
+              <td colspan="2" align="center">
+                <table width="80%">
+                  <tr>
+                      <td align="center">
+                        <button align="center" type="button" onClick="_ticket.set();" class="savebtn">Issue a ticket</button>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                      <x flip-target="ticketSignatureFront"></x>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+        </formElement>
+      </div>
+        </content>
+      <cbl flip-target="ticketSignature">Sign the ticket</cbl>
+      <cbr flip-target="testFace">Flip test</cbr>
+  </face>
+  <face id="ticketGet" face="back" controller="_ticket.GetKey_Ctrl();">
+      <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">Mobile Traffic Official</font> <font size="1" color="blue">V1.0</font></ctl>
+      <ctr>Enter key: <input name="key" text="text" size="3" ng-model="getKey.key"><button type="button" id="btnSearch" onClick="_ticket.getKey();">search</button></ctr>
+        <content>
+      <div align="center">
+        <formElement class="" title="View ticket by ID">
+          <table style="background-color: orange;">
+            <tr>
+              <td></td>
+              <td></td>
+            <tr></tr>
+            <tr>
+              <td>
+                <label>Driver's ID<label>
+              </td>
+              <td>
+                {{getKey.data.key}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label onClick="_ticket.testMsg();">Charge Code</label>
+              </td>
+              <td>
+                {{getKey.data.data}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Charge Fee (R)</label>
+              </td>
+              <td>
+                <input type="number" ng-model="c_fee" id="txtFee"/>
+               </td>
+            </tr>
+            <tr align="center">
+              <td colspan="2" align="center">
+                <table width="80%">
+                  <tr>
+                      <td align="center">
+                        <button align="center" type="button" onClick="_ticket.issueTicket();" class="savebtn">Issue a ticket</button>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                      <x flip-target="ticketSignature">Sign the ticket</x>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+        </formElement>
+        <placeholder>
+          Ticket Info: {{getKey.data}}
+        </placeholde >
+      </div>
+        </content>
+      <cbl></cbl>
+      <cbr></cbr>
+  </face>
+  <face id="testFace" face="back" controller="_ticket._Ctrl_Signature();">
+    <ctr>Out</ctr>
+    <ctl>Try</ctl>
+      <content>
+        <placeholder>
+          Ji test
+        </placeholder>
+      </content>
+    <cbr></cbr>
+    <cbl></cbl>
+
+  </face>
+
+  <face id="ticketSignature" controller="_ticket.Ctrl_Signature();">
+      <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">Mobile Traffic Official</font> <font size="1" color="blue">V1.0</font></ctl>
+      <ctr></ctr>
+        <content>
+          <ul>
+            <li ng-show="signature != '' ">
+              <table class="cardFormElementContainer" style="background-color: orange;" cellspacing='0' cellpadding='0'>
+                <tr>
+                  <td class="cardFormElementTitle">Signature</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src="{{sig}}" style="max-width=100%">
+                  </td>
+                </tr>
+              </table>
+            </li>
+      </content>
+      <cbr></cbr>
+      <cbl onClick="_ticket.getSignature();">Get signature</cbl>
+      <cbr ng-show="signature != '' ">Remove signature</cbr>
+  </face>
+</card>

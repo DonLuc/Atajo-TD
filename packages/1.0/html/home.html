@@ -1,0 +1,63 @@
+<card id="home" fill="true" flip="rl">
+
+<face id="homeFront" settings="default:true" controller="_home.Ctrl">
+    <ctl><font size="6" color="orange" face="cambria" style="text-shadow: 1px 1px 2px black;">Mobile Traffic Official</font> <font size="1" color="blue">V1.0</font></ctl>
+    <ctr class="gui-extra">&#xf017;</ctr>
+    
+    <content>
+      <div align="center">
+        <table class="cardFormContainer" cellspacing='0' cellpadding='0' width="100%"style="background-color: orange;">
+          <tr class="cardFormElementTitle">
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="cardFormElementContent" colspan="2">
+              <!--Logo-->
+              <img width="100%" height="60%" align="center" src="http://www.travelwithflair.co.za/UserFiles/Transport.jpg" style="box-shadow: 4px 4px 8px black;"/>
+            </td>
+          </tr>
+          <tr class="cardFormElementContent" align="center">
+            <td colspan="2" align"center"><font size="5" color="white" face="roboto" style="text-shadow: 1px 1px 2px black;"><u>Supported <strong>departments.</u></strong></font></td>
+          </tr>
+          <tr>
+            <!--Tshwane Metro-->
+            <td class="cardFormElementContent" align="center">
+              <img style="box-shadow: 4px 4px 8px black;" width="45%" height="45%" src="http://www.tshwane.gov.za/Sites/Departments/Style%20Library/Images/MetroPoliceLogo.jpg"/>
+            </td>
+            <td class="cardFormElementContent" align="center">
+              <img style="box-shadow: 4px 4px 8px black;" align="center" width="30%" height="45%" src="http://www.intelligencetransferc.co.za/wp-content/uploads/JMPD.jpg"/>
+            </td>
+          </tr>
+          <tr>
+            <!--Stop car-->
+            <td class="cardFormElementContent" align="center" colspan="2">
+              <img width="90%" height="60%" align="center" style="box-shadow: 4px 4px 8px;" src="http://www.timeslive.co.za/Feeds/ipad_images/2015/03/19/ttp15jmpd5-04-12-2013-14-12-05-493-.jpg/ALTERNATES/crop_630x400/TTP15JMPD5-04-12-2013-14-12-05-493-.jpg"/>
+            </td>
+          </tr>
+          <tr>
+            <!--Parade -->
+             <td class="cardFormElementContent" align="center" colspan="2">
+              <img width="90%" height="60%" style="box-shadow: 4px 4px 8px black;" align="center" src="http://www.timeslive.co.za/incoming/2015/01/12/tshwane-metro-cops-police.jpg/ALTERNATES/crop_630x400/tshwane+metro+cops+police.jpg"/>
+            </td>
+          </tr>
+
+          <tr class="cardFormElementContent" align="center">
+            <td colspan="2" align"center"><font size="5" color="white" face="roboto" style="text-shadow: 1px 1px 2px black;"><u>Select an <strong>operation (On-road/Off-road)</u></strong></font></td>
+          </tr>
+          <tr>  
+            <td align="center" class="cardFormElementContent">
+              <button type="button" class="md-traffic-btn" onClick="layout.show('onRoad')">On-road</button><div class="gui-extra">&#xf0a6;</div>
+            </td>
+            <td align="center" class="cardFormElementContent">
+              <button type="button" class="btnNormal">Off-road</button><div class="gui-extra">&#xf0a6;</div>
+            </td>
+          </tr>
+        </table>
+    </div>
+    </content>
+    <cbl></cbl>
+    <cbr><x>Show Data</x></cbr>
+
+</face>
+</card>

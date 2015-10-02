@@ -1,0 +1,42 @@
+<card id="regPlate" fill="true" >
+
+<face id="regPlateFront" settings="default:true" controller="_regPlate.Ctrl">
+    <ctl>Registration Plates</ctl>
+    <ctr>
+    </ctr>
+
+    <content>
+      <div>
+        <ul>
+          <li ng-repeat="plate in plates">
+            <center>
+              <table class="cardFormContainer" cellspacing='0' cellpadding='0' style="background-color: orange;">
+
+                  <tr>
+                     <td class="cardFormElementTitle">Registration Plate {{$index + 1}}</td>
+                     <td class="cardFormElementDesc" idx="{{$index}}" onClick="_regPlate.removePhoto($(this).attr('idx'));">DELETE&nbsp;<x class="gui-extra">&#xf00d;</x>
+                    </td>
+                  </tr>
+                   <tr>
+                     <td colspan="2" class="cardFormElementContent">
+                       <table>
+                        <tr>
+                        <td align="center">
+                            <img style="max-width:100%;" width="200" height="200" src="{{plate.img}}"  />
+                        </td>
+                        </tr>
+                      </table>
+                     </td>
+                   </tr>
+                </table>
+             </center>
+          </li>
+          <placeholder ng-show="!plates.length">NO PHOTOS {{plates.length}}</placeholder>
+        </ul>
+      </div>
+
+    </content>
+    <cbl id="btnAdd"  onClick="_regPlate.capturePhoto();">ADD PHOTO</cbl>
+    <cbr></cbr>
+</face>
+</card>
